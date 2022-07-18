@@ -1,0 +1,53 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <% imagesArray.forEach((image,index)=>{ %> <% if (index == 0) { %>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="<%= index %>"
+      class="active"
+      aria-current="true"
+      aria-label="Slide"
+    ></button>
+    <%} else { %>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="<%= index %>"
+      class=""
+      aria-current="true"
+      aria-label="Slide"
+    ></button>
+    <% } %> <%})%>
+  </div>
+  <div class="carousel-inner">
+    <% imagesArray.forEach((image,index)=>{ %> <% let active = (index == 0) ?
+    "active" : ""; %>
+    <div class="carousel-item <%= active %>">
+      <img
+        src="<%= image.download_url %>"
+        class="image-flued d-block w-100"
+        alt="..."
+      />
+    </div>
+    <%})%>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
